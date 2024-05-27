@@ -18,17 +18,17 @@ server.listen(3000, () => {
 });
 
 // Manejar nuevas conexiones WebSocket
-wss.on("connection", (webSocket) => {
+wss.on("connection", (ws) => {
   // Si ya hay dos jugadores conectados, rechazar la nueva conexión
   if (players.length >= 2) {
-    webSocket.send(JSON.stringify({ type: "error", message: "La sala está llena" }));
-    webSocket.close();
+    ws.send(JSON.stringify({ type: "error", message: "La sala está llena" }));
+    ws.close();
     return;
   }
 
   // Añadir el nuevo jugador a la lista de jugadores
   const playerId = players.length;
-  players.push(webSocket);
+  players.push(ws);
 
   /**
    * Función que recibe las elecciones de los jugadores y determina el ganador
@@ -51,7 +51,7 @@ wss.on("connection", (webSocket) => {
   }
 
   // Manejar mensajes recibidos desde el cliente
-  webSocket.on("message", (message) => {
+  ws.on("message", (message) => {
     const data = JSON.parse(message);
     if (data.type === "choice") {
       choices[playerId] = data.choice;
@@ -90,8 +90,8 @@ wss.on("connection", (webSocket) => {
   });
 
   // Manejar la desconexión de un jugador
-  webSocket.on("close", () => {
+  ws.on("close", () => {
     console.log("Player disconnected");
-    players = players.filter((player) => player !== webSocket);
+    players = players.filter((player) => player !== ws);
   });
 });

@@ -14,22 +14,41 @@
      <!-- jQuery -->
      <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <title>Piedra, papel, tijeras, lagarto o Spock</title>
+
 </head>
-<main>
 <body>
-<h1>El juego de piedra papel tijera lagarto spock , modificado?</h1>
-<div>
-    <button class="boton" data-choice="Piedra">Piedra</button>
-        <button class="boton" data-choice="Papel">Papel</button>
-        <button class="boton" data-choice="Tijeras">Tijeras</button>
-        <!-- Añado las nuevos botones  lagarto y spock -->
-        <button class="boton" data-choice="Lagarto">Lagarto</button>
-        <button class="boton" data-choice="Spock">Spock</button>
-</div>
-<!-- Donde añadiremos la seleccion de cada jugador -->
-<div id="mostrarEleccion">Eleccion:</div>
-<!-- Resultado de la partida -->
-<div id="resultado"></div>
+    <main>
+   <header class="container text-center">
+   <h1 class="my-4">El juego de piedra papel tijera lagarto spock</h1>
+       <p class="subtitle">El juego de Piedra, Papel, Tijeras, Lagarto y Spock es una expansión del clásico Piedra, Papel, Tijeras.</p>
+   </header>
+    <div class="container text-star">
+     
+        <section class="mb-4">
+        
+            <p>Las reglas son las siguientes:</p>
+            <ul class="list-unstyled">
+                <li>Piedra aplasta Tijeras y aplasta Lagarto.</li>
+                <li>Papel envuelve Piedra y desautoriza a Spock.</li>
+                <li>Tijeras cortan Papel y decapitan a Lagarto.</li>
+                <li>Lagarto envenena a Spock y devora Papel.</li>
+                <li>Spock aplasta Tijeras y vaporiza Piedra.</li>
+            </ul>
+      
+        </section>
+        <div class="divCirculos">
+            <div class="circle circle-blue" data-choice="Spock">Spock</div>
+            <div class="circle circle-purple" data-choice="Tijeras">Tijeras</div>
+            <div class="circle circle-orange" data-choice="Papel">Papel</div>
+            <div class="circle circle-pink" data-choice="Piedra">Piedra</div>
+            <div class="circle circle-green" data-choice="Lagarto">Lagarto</div>
+        </div>
+        <!-- Donde añadiremos la selección de cada jugador -->
+        <div id="mostrarEleccion" class="mt-4"> Elección:</div>
+        <!-- Resultado de la partida -->
+        <div id="resultado" class="mt-2"></div>
+    </div>
+    
 </main>
 </body>
 </html>
