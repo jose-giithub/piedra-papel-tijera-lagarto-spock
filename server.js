@@ -30,6 +30,8 @@ wss.on("connection", (ws) => {
   const playerId = players.length;
   players.push(ws);
 
+    // Enviar el número de jugador al cliente
+    ws.send(JSON.stringify({ type: "playerNumber", playerId: playerId + 1 }));
   /**
    * Función que recibe las elecciones de los jugadores y determina el ganador
    * 

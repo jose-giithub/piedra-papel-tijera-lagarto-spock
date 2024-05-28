@@ -12,12 +12,12 @@ header{
     padding: 10px;
 }
 .subtitle {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 section {
     background-color: #f4f4f4;
     padding: 10px;
-    font-size: 18px;
+    font-size: 1.3rem;
 }
 .divCirculos {
     background-color: #f4f4f4;
@@ -76,17 +76,35 @@ section {
     top: calc(-450% + 200px);
     left: calc(55% - 200px);
 }
-.mostrarEleccion {
-    font-size: 1.5rem;
+#mostrarJugador{
+    padding: 10px;
+    width: 400px;
+    border: solid 1px #000;
+    font-size: 1.3rem;
     font-weight: bold;
     background-color: #f4f4f4;
     color: #000;
-    font-size: 18px;
+
 }
 
-.resultado {
-    font-size: 1.5rem;
+#mostrarEleccion {
+    padding: 10px;
+    width: 400px;
+    border: solid 1px #000;
+    font-size: 1.3rem;
     font-weight: bold;
     background-color: #f4f4f4;
+    color: #000;
+
+}
+
+#resultado {
+    padding: 10px;
+    width: 400px;
+    border: solid 1px #000;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background-color: #f4f4f4;
+    color: #000;
 }
 
