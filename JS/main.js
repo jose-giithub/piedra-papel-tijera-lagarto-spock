@@ -1,9 +1,26 @@
 window.addEventListener("DOMContentLoaded", function () {
+    console.log("DOM fully loaded and parsed");
     // Captura de elementos del DOM donde añadiré el contenido
      const divMostrarJugador = $("#mostrarJugador");
     const divMostrarEleccion = $("#mostrarEleccion");
     const divResultado = $("#resultado");
     const servidor = new WebSocket("ws://localhost:3000");
+
+   // Capturo el botón de reglas y añado el evento click
+   $("#botonReglas").click(function () {
+    // si esta oculto lo muestro y si esta visible lo oculto
+    if ($("#instrucciones").is(":visible")) {
+        $("#instrucciones").hide();
+    } else {
+        $("#instrucciones").show();
+    }
+    // $("#instrucciones").show();
+});
+
+// Capturo el botón de cerrar dentro de las instrucciones y añado el evento click
+$("#cerrarInstrucciones").click(function () {
+    $("#instrucciones").hide();
+});
 
     servidor.onmessage = (event) => {
         const data = JSON.parse(event.data);
@@ -17,10 +34,13 @@ window.addEventListener("DOMContentLoaded", function () {
         }
     };
 //Evento click en los botones de elección capturo todos los botones con la clase circle y les añado el ebento click
-    $(".circle").click(function () {
+    $(".divPiedra, .divPapel ,.divTijeras , .divLagarto , .divSpock").click(function () {
+
         const choice = $(this).attr("data-choice");//determino la elección del jugador
         console.log("Opción seleccionada:", choice);
+
         servidor.send(JSON.stringify({ type: 'choice', choice }));//envío la elección al servidor
         divMostrarEleccion.text(`Elegiste: ${choice}`);//Atizo la eleccion en el HTML
     });
+
 });

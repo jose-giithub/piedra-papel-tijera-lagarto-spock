@@ -1,149 +1,113 @@
 body {
     font-family: 'Tahoma', sans-serif;
 }
-main{
-    background-color: #f4f4f4;
+
+main {
+    background-color: white;
     min-height: 1200px; /* Ajustado a min-height para permitir expansión */
 }
-header{
+
+header {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 10px;
 }
+
 .subtitle {
     font-size: 1.3rem;
 }
-section {
-    background-color: #f4f4f4;
-    padding: 10px;
-    font-size: 1.3rem;
-}
-.divCirculos {
-    background-color: #f4f4f4;
-    position: relative;
-    height: 50px; /* Ajusta este valor según sea necesario */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+#divPadreBotonReglas {
+    margin-top: 10px;
 }
 
-.circle {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#botonReglas  ,#cerrarInstrucciones{
+    background-color: #333;
     color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
-    position: absolute;
 }
 
-/* Tijeras */
-.circle-purple {
-    background-color: purple;
-    top: -250%;
+#instrucciones {
+    text-align: center;
+    height: 400px;
+    width: 30%;
+    position: fixed;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -100%);
+    transform: translate(-50%, -50%);
+    z-index: 1050; /* Asegura que la card esté por encima de otros elementos */
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: none;
 }
 
-/* Spock */
-.circle-blue {
-    background-color: blue;
-    top: calc(100% - 200px);
-    left: calc(50% - 200px);
-}
-
-/* Papel */
-.circle-orange {
-    background-color: orange;
-    top: calc(100% - 200px);
-    left: calc(42% + 200px);
-}
-
-/* Piedra */
-.circle-pink {
-    background-color: pink;
-    top: calc(-450% + 200px);
-    left: calc(38% + 200px);
-}
-
-/* Lagarto */
-.circle-green {
-    background-color: chartreuse;
-    top: calc(-450% + 200px);
-    left: calc(55% - 200px);
-}
-#mostrarJugador{
+section {
+    background-color: white;
     padding: 10px;
-    width: 400px;
+    font-size: 1.3rem;
+}
+
+#mostrarJugador, #mostrarEleccion, #resultado {
+    width: 30%;
     border: solid 1px #000;
     font-size: 1.3rem;
     font-weight: bold;
-    background-color: #f4f4f4;
+    background-color: white;
     color: #000;
+    text-align: center;
+}
+
+.divpadreIconos {
+    margin: 60px 100px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.divPiedra, .divPapel, .divTijeras, .divLagarto, .divSpock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    padding: 10px;
+    margin: 10px;
+}
+
+.divpadreIconos i {
+    font-size: 2rem;
+    transition: color 0.3s;
+}
+
+.divpadreIconos :hover {
+    background-color: #bdc8d3 !important;
 
 }
 
-#mostrarEleccion {
-    padding: 10px;
-    width: 400px;
-    border: solid 1px #000;
-    font-size: 1.3rem;
-    font-weight: bold;
-    background-color: #f4f4f4;
-    color: #000;
-
-}
-
-#resultado {
-    padding: 10px;
-    width: 400px;
-    border: solid 1px #000;
-    font-size: 1.3rem;
-    font-weight: bold;
-    background-color: #f4f4f4;
-    color: #000;
+.divpadreIconos p {
+    margin-top: 5px;
+    text-align: center;
 }
 
 /* Media Queries para pantallas pequeñas */
-@media (max-width: 1300px) {
-
-    .divCirculos {
-        margin-top: 80px;
-        background-color: #f4f4f4;
-        position: relative;
-        height: auto; /* Ajuste para permitir expansión */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas más pequeñas */
-        gap: 10px; /* Espacio entre los círculos */
+@media (max-width: 767.98px) {
+    header, section {
+        text-align: center;
     }
-    
-    .circle {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
 
-        font-size: 1.2rem;
-        cursor: pointer;
-        position: static; /* Cambiado a static para que se alineen correctamente */
+    #mostrarJugador, #mostrarEleccion, #resultado {
+        width: 90%;
+        margin: 10px auto; /* Centrar los elementos */
+    }
+
+    .divpadreIconos {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .divPiedra, .divPapel, .divTijeras, .divLagarto, .divSpock {
+        width: 45%; /* Ajustar el tamaño de los contenedores en pantallas pequeñas */
         margin: 5px;
     }
-
-    
-/* Tijeras */
-.circle-purple {
-    background-color: purple;
-    top: -250%;
-    left: 50%;
-    transform: translate(-0%, -100%);
-}
-
 }

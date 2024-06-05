@@ -18,46 +18,58 @@
 </head>
 <body>
     <main>
-   <header class="container text-center">
-   <h1 class="my-4">El juego de piedra papel tijera lagarto spock</h1>
-       <p class="subtitle">El juego de Piedra, Papel, Tijeras, Lagarto y Spock es una expansión del clásico Piedra, Papel, Tijeras.</p>
-   </header>
-    <div class="container text-star">
-     
-        <section class="mb-4">
-        
-            <p>Las reglas son las siguientes:</p>
-            <ul class="list-unstyled">
-                <li>Piedra aplasta Tijeras y aplasta Lagarto.</li>
-                <li>Papel envuelve Piedra y desautoriza a Spock.</li>
-                <li>Tijeras cortan Papel y decapitan a Lagarto.</li>
-                <li>Lagarto envenena a Spock y devora Papel.</li>
-                <li>Spock aplasta Tijeras y vaporiza Piedra.</li>
-            </ul>
-      
-        </section>
-        <div class="divCirculos">
-            <!-- <div class="circle circle-blue" data-choice="Spock">Spock</div> -->
-            <!-- <div class="circle circle-purple" data-choice="Tijeras">Tijeras</div> -->
-            <!-- <div class="circle circle-orange" data-choice="Papel">Papel</div> -->  
-    <!-- <div class="circle circle-pink" data-choice="Piedra">Piedra</div> -->
-     <!-- <div class="circle circle-green" data-choice="Lagarto">Lagarto</div> -->
-            <i  id="Piedra"  data-choice="Piedra" class="fa-solid fa-hand-back-fist" style="color: #000000;"><p>Piedra</p></i>
-            <i  id="Papel" data-choice="Papel" class="fa-solid fa-hand" style="color: #000000;"><p>Papel</p></i>
-            <i id="Tijeras" data-choice="Tijeras" class="fa-solid fa-hand-scissors" style="color: #000000;"><p>Tijeras</p></i>  
-            <i id="Lagarto"  data-choice="Lagarto" class="fa-solid fa-hand-lizard" style="color: #000000;"><p>Lagarto</p></i>
-            <i id="Spock" data-choice="Spock" class="fa-solid fa-hand-spock" style="color: #000000;"><p>Spock</p></i>
-           
-
+        <header class="container text-center">
+            <h1 class="my-4">El juego de piedra papel tijera lagarto spock</h1>
+            <p class="subtitle">El juego de Piedra, Papel, Tijeras, Lagarto y Spock es una expansión del clásico Piedra, Papel, Tijeras.</p>
+        </header>
+        <div  id="divPadreBotonReglas" class="container text-end">
+            <div id="botonReglas" class="btn  mb-4">¿Cómo jugar?</div>
         </div>
-        <!-- Añadir el numero de jugador que toca -->
-        <div id="mostrarJugador" class="mt-4">Jugador:</div>
-        <!-- Donde añadiremos la selección de cada jugador -->
-        <div id="mostrarEleccion" class="mt-4"> Elección:</div>
-        <!-- Resultado de la partida -->
-        <div id="resultado" class="mt-2">Resultado</div>
-    </div>
-    
-</main>
+        <div id="instrucciones" class="card" style="display:none;">
+            <div class="card-body">
+                <h5 class="card-title">¿Cómo se juega?</h5>
+                <p class="card-text">Copia la URL de tu navegador y envíala a un amigo. Una vez que ambos estén preparados, presionen la selección que deseen.</p>
+                <h6 class="card-subtitle mb-2 text-muted">¿Quién gana a quién?</h6>
+                <ul class="list-unstyled">
+                    <li>Piedra aplasta Tijeras y aplasta Lagarto.</li>
+                    <li>Papel envuelve Piedra y desautoriza a Spock.</li>
+                    <li>Tijeras cortan Papel y decapitan a Lagarto.</li>
+                    <li>Lagarto envenena a Spock y devora Papel.</li>
+                    <li>Spock aplasta Tijeras y vaporiza Piedra.</li>
+                </ul>
+                <button id="cerrarInstrucciones" class="btn mt-3">Cerrar</button>
+            </div>
+        </div>
+        <div class="container text-start">
+            <div class="d-flex justify-content-between mb-4">
+                <div id="mostrarJugador" class="border p-2">Jugador:</div>
+                <div id="mostrarEleccion" class="border p-2">Elección:</div>
+                <div id="resultado" class="border p-2">Resultado</div>
+            </div>
+            <!-- Mas separación esntre estas partes -->
+            <div class="d-flex justify-content-around divpadreIconos">
+                <div class="text-center divPiedra"  data-choice="Piedra">
+                    <i id="Piedra" class="fa-solid fa-hand-back-fist" style="color: #000000;"></i>
+                    <p>Piedra</p>
+                </div>
+                <div class="text-center divPapel" data-choice="Papel">
+                    <i id="Papel"  class="fa-solid fa-hand" style="color: #000000;"></i>
+                    <p>Papel</p>
+                </div>
+                <div id="divIconoTijeras" class="text-center divTijeras" data-choice="Tijeras">
+                    <i id="Tijeras"  class="fa-solid fa-hand-scissors" style="color: #000000;"></i>
+                    <p>Tijeras</p>
+                </div>
+                <div class="text-center divLagarto" data-choice="Lagarto" >
+                    <i id="Lagarto" class="fa-solid fa-hand-lizard" style="color: #000000;"></i>
+                    <p>Lagarto</p>
+                </div>
+                <div class="text-center divSpock" data-choice="Spock">
+                    <i id="Spock"  class="fa-solid fa-hand-spock" style="color: #000000;"></i>
+                    <p>Spock</p>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
