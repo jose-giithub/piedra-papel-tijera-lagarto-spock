@@ -1,21 +1,35 @@
 const express = require("express");
-const http = require("http");
+
+ const http = require("http");
+
 const WebSocket = require("ws");
 
+
 const app = express();
-const server = http.createServer(app);
+// local lo comento
+ const server = http.createServer(app);
+
 const wss = new WebSocket.Server({ server });
 
+
 // Servir archivos estáticos desde la carpeta "public"
-app.use(express.static("public"));
+app.use(express.static("public"));//el html, js y css tienes que estar en la carpeta  public
 
 let players = [];
 let choices = {};
 
-// Iniciar el servidor y escuchar en el puerto 3000
-server.listen(3000, () => {
+// CÓDIGO PARA TRABAJAR EN LOCAL**************
+// Código para trabajar en local , para producción queda comentado  
+// server.listen(3000, () => {
+//   console.log("Server is listening on port 3000");
+// });
+
+// CÓDIGO PARA TRABAJAR EN PRODUCCIÓN**************
+// Escuchar en 0.0.0.0 para que sea accesible desde fuera del contenedor
+server.listen(3000, '0.0.0.0', () => {
   console.log("Server is listening on port 3000");
 });
+
 
 // Manejar nuevas conexiones WebSocket
 wss.on("connection", (ws) => {

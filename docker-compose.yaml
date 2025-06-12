@@ -1,0 +1,19 @@
+services:
+  app-nodejs:
+    build: .
+    container_name: nodejs-app-piedraPapel
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - proxiable
+networks:
+  proxiable:
+    external: true

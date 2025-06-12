@@ -4,7 +4,19 @@ window.addEventListener("DOMContentLoaded", function () {
      const divMostrarJugador = $("#mostrarJugador");
     const divMostrarEleccion = $("#mostrarEleccion");
     const divResultado = $("#resultado");
-    const servidor = new WebSocket("ws://localhost:3000");
+
+// CÓDIGO PARA TRABAJAR EN LOCAL**************
+// Código para trabajar en local , para producción queda comentado  
+    // const servidor = new WebSocket("ws://localhost:3000");
+    // CÓDIGO VIEJO
+    // const servidor = new WebSocket("wss://mi.subdominio.es");
+
+
+    // **AJUSTE CRÍTICO PARA PRODUCCIÓN CON WEBSOCKETS Y PROXY INVERSO**
+    // Usa window.location.host para obtener el host actual del navegador
+    // y determina el protocolo (ws:// o wss://) basado en window.location.protocol
+    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    const servidor = new WebSocket(`${protocol}//${window.location.host}`);
 
    // Capturo el botón de reglas y añado el evento click
    $("#botonReglas").click(function () {
@@ -14,7 +26,6 @@ window.addEventListener("DOMContentLoaded", function () {
     } else {
         $("#instrucciones").show();
     }
-    // $("#instrucciones").show();
 });
 
 // Capturo el botón de cerrar dentro de las instrucciones y añado el evento click

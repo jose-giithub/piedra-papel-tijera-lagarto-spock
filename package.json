@@ -1,5 +1,5 @@
 {
-  "name": "5-devchallenge-piedra-papel-tojera-lagarto-spock",
+  "name": "janken-plus",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
